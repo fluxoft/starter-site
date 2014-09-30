@@ -1,0 +1,22 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteRule ^favicon\.ico$		/static/img/favicon.jpg [L]
+RewriteRule ^robots\.txt$		/static/robots.txt [L]
+
+RewriteCond %{REQUEST_URI}      !/static
+RewriteCond %{REQUEST_URI}      !/index.php
+RewriteRule ^$ /index.php [QSA,L]
+
+RewriteCond %{REQUEST_URI}      !/static
+RewriteCond %{REQUEST_URI}      !/index.php
+RewriteRule ^([^/]*)/([^/]*)/(.*)$ /index.php/$1/$2/$3 [QSA,L]
+
+RewriteCond %{REQUEST_URI}      !/static
+RewriteCond %{REQUEST_URI}      !/index.php
+RewriteRule ^([^/]*)/([^/]*)$ /index.php/$1/$2 [QSA,L]
+
+RewriteCond %{REQUEST_URI}      !/static
+RewriteCond %{REQUEST_URI}      !/index.php
+RewriteRule ^([^/]*)$ /index.php/$1 [QSA,L]
+</IfModule>

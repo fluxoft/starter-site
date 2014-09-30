@@ -1,0 +1,11 @@
+{
+	"require": {
+		"fluxoft/rebar": "~0.9.8",
+		"fluxoft/rebar-presenters-smarty": "~1.0.2"
+	},
+	"autoload": {
+		"psr-4": {
+			"Starter\\": "src/Starter/"
+		}
+	}
+}

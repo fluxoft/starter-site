@@ -1,0 +1,29 @@
+{
+    "name": "initiatel",
+    "version": "0.1.0",
+    "authors": [
+        "Joe Hart <joe@fluxoft.com>"
+    ],
+    "description": "Initiatel",
+    "moduleType": [
+        "amd"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "jquery": null,
+        "backbone": null,
+        "underscore": null,
+        "requirejs": null,
+        "requirejs-plugins": null,
+        "bootstrap": null,
+        "bootbox": null
+    }
+}
