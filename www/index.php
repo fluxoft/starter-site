@@ -9,11 +9,11 @@ set_error_handler('errorHandler');
 
 session_start();
 
-$loader = require_once 'vendor/autoload.php';
+$loader = require_once __DIR__.'/../vendor/autoload.php';
 $container = require_once 'services.php';
 
 $config = array(
-	'actorsNamespace' => 'Initiatel\Actors',
+	'actorsNamespace' => $container['app']['namespace'].'\Actors',
 	'methodArgs' => array($container)
 );
 $routes = array();

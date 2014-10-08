@@ -66,23 +66,38 @@ $c['WebAuth'] = function ($c) {
 };
 
 // Smarty
-$c['appPath'] = '/var/www';
-$c['templatePath'] = $c['appPath'] . '/templates';
-$c['cachePath'] = '/var/www/cache';
+$c['templatePath'] = __DIR__.'/templates/';
+$c['cachePath'] = __DIR__.'/../cache/';
 /**
  * @param $c
- * @return Fluxoft\Rebar\Presenters\Smarty
+ * @return \Fluxoft\Rebar\Presenters\Smarty
  */
 $c['smarty'] = function ($c) {
-	$smarty = new \Smarty();
-	$smarty->muteExpectedErrors();
-	$smarty->template_dir = $c['templatePath'];
-	$smarty->compile_dir = $c['cachePath'] . '/Smarty/templates_c';
-	$smarty->cache_dir = $c['cachePath'] . '/Smarty/cache';
-	$smarty->config_dir = $c['cachePath'] . '/Smarty/config';
-
 	return new \Fluxoft\Rebar\Presenters\Smarty(
-		$smarty,
+		$c['templatePath'],
+		$c['cachePath'] . 'Smarty/templates_c',
+		$c['cachePath'] . 'Smarty/cache',
+		$c['cachePath'] . 'Smarty/config'
+	);
+};
+
+/**
+ * @param $c
+ * @return \Fluxoft\Rebar\Presenters\Twig
+ */
+$c['twig'] = function ($c) {
+	return new \Fluxoft\Rebar\Presenters\Twig(
+		$c['templatePath'],
+		$c['cachePath'] . 'Twig/cache'
+	);
+};
+
+/**
+ * @param $c
+ * @return \Fluxoft\Rebar\Presenters\Phtml
+ */
+$c['phtml'] = function ($c) {
+	return new \Fluxoft\Rebar\Presenters\Phtml(
 		$c['templatePath']
 	);
 };
